@@ -5,28 +5,18 @@ const items = [
 ];
 
 // as a user
-// i want a function that gives me the total amount of all electronics
-// so that i can ... 
-// ( imperative implementation )
-
-//function sumOfElectronics(arr) {
-//  let sum = 0;
-//
-//}
-
-// as a user
-// i want a function that returns only the electronics in the array
+// i want a function that returns the total ammount of all electronics 
 // so that i can ... 
 // ( imperative implementation ) 
 //
-function filterElectronics(arr) {
-  let returnArr = [];
+function sumOfAllElectronics(arr) {
+  let sum = 0;
   for(let i = 0; i < arr.length; i+=1) { 
     if(arr[i].type === 'electronics') {
-      returnArr.push(arr[i]);
+      sum = sum+=arr[i].price;
     }
   }
-  return returnArr;
+  return sum;
 }
 
 // ( functional implementation ) // using a filter on the array
@@ -39,7 +29,30 @@ function filterElectronics(arr) {
 //}
 
 // es6 syntax
-const functionalFilterElectronics = arr =>
-  arr.filter(item => item.type === 'electronics');
+const functionSumOfAllElectronics = arr =>
+  arr
+    .filter(item => item.type === 'electronics') // [ { type: 'asdf', price: 1000 }, { type: 'asdf', price: 500 }]
+    .map(item => item.price + 12) // [ 1000, 500 ] 
+    .reduce((accumulator, price) => accumulator + price, 0); 
 
-console.log(functionalFilterElectronics(items));
+//console.log(functionSumOfAllElectronics(items));
+
+// what is happening with the reduce
+//
+
+//const items = [
+//  { type: 'electronics', price: 1000, name: 'iPhone' },
+//  { type: 'clothing', price: 8, name: 'socks' },
+//  { type: 'electronics', price: 500, name: 'iWatch' },
+//];
+console.log(items.reduce((acc, item) => acc + item.price, 0));
+
+// run 1 : acc = initialValue ( 0 ), item = price: 1000
+// run 1 returns -> 0 + 1000 = 1000
+//
+// run 2 : acc = return value of the previous run = 1000, item = price: 8
+// run 2 return -> 1000 + 8 = 1008
+//
+// run 3 : acc = return value of the previous run = 1008, item = price: 500
+// run 3 return -> 1008 + 500 = 1508
+
