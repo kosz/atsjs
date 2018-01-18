@@ -4,8 +4,9 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "tsc spec.ts && node spec.js",
-    "test:counter": "tsc counter-reducer.spec.ts && node counter-reducer.spec.js"
+    "test": "tsc spec.ts && node spec.js && npm run test:counter && npm run test:observable",
+    "test:counter": "tsc counter-reducer.spec.ts && node counter-reducer.spec.js",
+    "test:observable": "tsc observable.spec.ts && node observable.spec.js"
   },
   "repository": {
     "type": "git",

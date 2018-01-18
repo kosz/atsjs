@@ -22,6 +22,11 @@ export function expect(actualValue) {
       if(actualValue !== expectedValue) {
         throw new Error(`${actualValue} does not equal ${expectedValue}`);
       }
+    },
+    toBeDefined: () => {
+      if(actualValue === undefined) {
+        throw new Error(`should be defined`);
+      }
     }
   };
 }
