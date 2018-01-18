@@ -4,7 +4,7 @@ describe('a subject', function() {
 
   it('will pass', function() {
     const a = true;
-    const b = false;
+    const b = true;
     expect(a).toEqual(b);
   });
 

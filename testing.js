@@ -1,5 +1,6 @@
 "use strict";
 exports.__esModule = true;
+var colors = require("colors/safe");
 function describe(subject, block) {
     console.log('the', subject);
     block();
@@ -9,10 +10,10 @@ function it(description, block) {
     var result = "" + description;
     try {
         block();
-        result = result + ' passed';
+        result = result + (" " + colors.green('√'));
     }
     catch (e) {
-        result = result + ' failed';
+        result = result + (" " + colors.red('x') + " -> " + e.message);
     }
     console.log(result);
 }
@@ -21,7 +22,7 @@ function expect(actualValue) {
     return {
         toEqual: function (expectedValue) {
             if (actualValue !== expectedValue) {
-                throw new Error(actualValue + " does not match " + expectedValue);
+                throw new Error(actualValue + " does not equal " + expectedValue);
             }
         }
     };

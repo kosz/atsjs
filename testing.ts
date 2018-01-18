@@ -1,3 +1,4 @@
+import * as colors from 'colors/safe';
 
 export function describe(subject: string, block: Function) {
   console.log('the', subject);
@@ -8,9 +9,9 @@ export function it(description: string, block: Function) {
   let result = `${description}`;
   try {
     block();
-    result = result + ' passed';
+    result = result + ` ${colors.green('√')}`;
   } catch(e) {
-    result = result + ' failed';
+    result = result + ` ${colors.red('x')} -> ${e.message}`;
   } 
   console.log(result);
 }
@@ -19,7 +20,7 @@ export function expect(actualValue) {
   return {
     toEqual: (expectedValue) => {
       if(actualValue !== expectedValue) {
-        throw new Error(`${actualValue} does not match ${expectedValue}`);
+        throw new Error(`${actualValue} does not equal ${expectedValue}`);
       }
     }
   };
