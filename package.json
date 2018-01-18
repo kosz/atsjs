@@ -1,0 +1,22 @@
+{
+  "name": "atsjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "tsc spec.ts && node spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kosz/atsjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kosz/atsjs/issues"
+  },
+  "homepage": "https://github.com/kosz/atsjs#readme",
+  "dependencies": {
+    "colors": "^1.1.2"
+  }
+}
