@@ -20,5 +20,8 @@
   "homepage": "https://github.com/kosz/atsjs#readme",
   "dependencies": {
     "colors": "^1.1.2"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.6.4"
   }
 }
